@@ -1,10 +1,31 @@
 <section class="signup-form">
-  <form fxLayout="column" fxLayoutAlign="center center">
+  <form fxLayout="column" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="onSubmit(f)">
     <mat-form-field>
-      <input type="email" matInput placeholder="Deine Email Adresse">
+      <input
+        type="email"
+        matInput
+        placeholder="Deine Email Adresse"
+        ngModel
+        name="email"
+        email
+        required
+        #emailInput="ngModel">
+      <mat-error *ngIf="emailInput.hasError('required')">Feld darf nicht leer sein</mat-error>
+      <mat-error *ngIf="!emailInput.hasError('required')">Email ist ungültig</mat-error>
     </mat-form-field>
-    <mat-form-field>
-      <input type="password" matInput placeholder="Dein Passwort">
+    <mat-form-field hintLabel="Passwort muss 6 Zeichen lang sein">
+      <input
+        type="password"
+        matInput
+        placeholder="Dein Passwort"
+        ngModel
+        name="password"
+        required
+        minlength="6"
+        #pwInput="ngModel">
+    <mat-hint align="end">{{ pwInput.value?.length }} / 6</mat-hint>
+    <mat-error>Passwort muss mindestens 6 Zeichen lang sein</mat-error>
     </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">Bestätigen</button>
   </form>
 </section>

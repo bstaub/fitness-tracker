@@ -12,6 +12,7 @@ import { NewTrainingComponent } from './training/new-training/new-training.compo
 import { TrainingComponent } from './training/training.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AppRoutingModule } from './app-routing.module';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
